@@ -1,11 +1,11 @@
-import SocialFollow from "../components/SocialFollow/SocialFollow"
+import InstagramFollow from "../components/InstagramFollow/InstagramFollow"
 
 
 const AboutMe = () => {
     return(
         <div>
         blah blah blah link to insta
-        <SocialFollow/>
+        <InstagramFollow/>
         </div>
     )
 }

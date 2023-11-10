@@ -1,2 +1,3 @@
-export { default as Navigation } from "./Navigation";
-export { default as SocialFollow } from "./SocialFollow/SocialFollow";
+export { default as Navigation } from "./Navigation/Navigation";
+export { default as InstagramFollow } from "./InstagramFollow/InstagramFollow";
+export { default as LinkedInFollow } from "./LinkedInFollow/LinkedInFollow";
