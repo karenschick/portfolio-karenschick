@@ -9,6 +9,7 @@ function InstagramFollow() {
       <a
         href="https://www.instagram.com/picsbyschick"
         className="instagram social"
+        target="_blank"
       >
         <FontAwesomeIcon icon={faInstagram} size="2x" />
       </a>

@@ -9,6 +9,7 @@ function LinkedInFollow() {
       <a
         href="https://www.linkedin.com/in/karenschick"
         className="linkedin social"
+        target="_blank"
       >
         <FontAwesomeIcon icon={faLinkedin} size="2x" />
       </a>
