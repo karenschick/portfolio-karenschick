@@ -5,7 +5,7 @@ import "./LinkedInFollow.css";
 
 function LinkedInFollow() {
   return (
-    <div class="linkedin-container">
+    <div className="linkedin-container">
       <a
         href="https://www.linkedin.com/in/karenschick"
         className="linkedin social"

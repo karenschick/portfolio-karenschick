@@ -1,13 +1,12 @@
-import InstagramFollow from "../components/InstagramFollow/InstagramFollow"
-
+import InstagramFollow from "../components/InstagramFollow/InstagramFollow";
 
 const AboutMe = () => {
-    return(
-        <div>
-        blah blah blah link to insta
-        <InstagramFollow/>
-        </div>
-    )
-}
+  return (
+    <div>
+      blah blah blah link to insta
+      <InstagramFollow />
+    </div>
+  );
+};
 
-export default AboutMe
+export default AboutMe;

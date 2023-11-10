@@ -5,7 +5,7 @@ import "./InstagramFollow.css";
 
 function InstagramFollow() {
   return (
-    <div class="instagram-container">
+    <div className="instagram-container">
       <a
         href="https://www.instagram.com/picsbyschick"
         className="instagram social"
