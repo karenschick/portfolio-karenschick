@@ -4,13 +4,16 @@ import { Navbar, Nav } from "react-bootstrap";
 
 
 function Navigation() {
-    return (
+
+  "mailto:karen.schick6@gmail.com"
+
+  return (
         <Navbar bg="light" data-bs-theme="light" >
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/AboutMe">About Me</Nav.Link>
             <Nav.Link as={Link} to="/Portfolio">Portfolio</Nav.Link>
-            
+            <a href="mailto:karen.schick6@gmail.com">Email!</a>
           </Nav>
         </Navbar>
       );
