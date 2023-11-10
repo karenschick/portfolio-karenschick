@@ -1,7 +1,11 @@
+import SocialFollow from "../components/SocialFollow/SocialFollow"
+
+
 const AboutMe = () => {
     return(
         <div>
-        blahblah
+        blah blah blah link to insta
+        <SocialFollow/>
         </div>
     )
 }
