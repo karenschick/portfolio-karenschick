@@ -2,8 +2,7 @@ import React from "react";
 import { Container, Col, Image, Row } from "react-bootstrap";
 import fall2023Image from "../img/fall2023.jpg";
 import "../app.css";
-import { motion } from 'framer-motion';
-
+import { motion } from "framer-motion";
 
 const HomePage = () => {
   const containerVariants = {
@@ -12,13 +11,13 @@ const HomePage = () => {
   };
 
   const contentVariants = {
-    hidden: { x: '-100vw' },
-    visible: { x: 0, transition: { type: 'spring', stiffness: 120 } },
+    hidden: { x: "-100vw" },
+    visible: { x: 0, transition: { type: "spring", stiffness: 50 } },
   };
 
   const imageVariants = {
-    hidden: { x: '100vw' },
-    visible: { x: 0, transition: { type: 'spring', stiffness: 120 } },
+    hidden: { x: "100vw" },
+    visible: { x: 0, transition: { type: "spring", stiffness: 50 } },
   };
 
   return (
@@ -29,20 +28,16 @@ const HomePage = () => {
       animate="visible"
     >
       <div className="homePage">
-        <motion.div
-          className="homePageContent"
-          variants={contentVariants}
-        >
+        <motion.div className="homePageContent" variants={contentVariants}>
           <h1 className="title">
             <span>Hi!</span> <br />
             <span>I'm Karen,</span>
             <br />
             <span>web developer.</span>
           </h1>
-          <p className="homePageDescription">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            <br /> Dolorum, quas. Amet soluta assumenda cum?
-          </p>
+          <span className="homePageDescription">
+            JAVASCRIPT / HTML / CSS / MERN
+          </span>
         </motion.div>
       </div>
       <motion.div className="homePageImage" variants={imageVariants}>
@@ -53,4 +48,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
