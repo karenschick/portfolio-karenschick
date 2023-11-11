@@ -42,7 +42,7 @@ const Portfolio = () => {
         <Container>
           <Row className="justify-content-between align-items-center">
             <Col>
-              <h1>Header</h1>
+              <h1>Projects</h1>
             </Col>
             <Col>
               <LinkedInFollow />
