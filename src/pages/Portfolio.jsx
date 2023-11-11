@@ -41,11 +41,11 @@ const Portfolio = () => {
 
   return (
     <>
-      <div className="header" style={{height:"100px"}}>
+      <div className="mt-5 mb-5" style={{height:"100px"}}>
         <Container>
           <Row className="justify-content-between align-items-center">
             <Col>
-              <h1>Header.....................................</h1>
+              <h1>Header</h1>
             </Col>
             <Col>
               <LinkedInFollow />
