@@ -21,17 +21,17 @@ const AboutMe = () => {
 
   return (
     <>
-    <div className="mt-5 " style={{height:"100px"}}>
-    <Container>
-      <Row style={{ width: "100%" }}>
-        <Col>
-        <h1>About Me</h1>
-        </Col>
-        <Col>
-        <InstagramFollow />
-        </Col>
-      </Row>
-      </Container>
+      <div className="mt-5 " style={{ height: "100px" }}>
+        <Container>
+          <Row style={{ width: "100%" }}>
+            <Col>
+              <h1>About Me</h1>
+            </Col>
+            <Col>
+              <InstagramFollow />
+            </Col>
+          </Row>
+        </Container>
       </div>
 
       <motion.div
@@ -40,30 +40,18 @@ const AboutMe = () => {
         initial="hidden"
         animate="visible"
       >
-        <div className="homePage">
-          <motion.div className="homePageContent" variants={contentVariants}>
-
-      
-      
-        
+        <motion.div className="about-img" variants={contentVariants}>
           <Image style={{ width: "100%" }} src={lizardImg} />
-        
         </motion.div>
 
-        </div>
-        <motion.div className="homePageImage" variants={imageVariants}>
-
-        
+        <motion.div className="about-content" variants={imageVariants}>
           <Card style={{ width: "100%" }}>
             blah blah blah <br />
             when not banging my head against the wall coding you'll find me
             hiking, taking photos of wildlife, painting, or cleaning.
           </Card>
-          </motion.div>
+        </motion.div>
       </motion.div>
-        
-      
-    
     </>
   );
 };
