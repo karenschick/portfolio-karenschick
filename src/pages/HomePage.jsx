@@ -30,23 +30,21 @@ const HomePage = () => {
         initial="hidden"
         animate="visible"
       >
-        <div className="homePage">
-          <motion.div className="homePageContent" variants={contentVariants}>
-            <h1 className="title">
-              <span>Hi!</span> <br />
-              <span>I'm Karen,</span>
-              <br />
-              <span>web developer.</span>
-            </h1>
-            <span className="homePageDescription">
-              JAVASCRIPT / HTML / CSS / MERN
-            </span>
-          </motion.div>
-        </div>
-        <motion.div className="homePageImage" variants={imageVariants}>
+        <motion.div className="home-content" variants={contentVariants}>
+          <h1 className="home-title">
+            <span>Hi!</span> <br />
+            <span>I'm Karen,</span>
+            <br />
+            <span>web developer.</span>
+          </h1>
+          <h3 className="home-subtitle">JAVASCRIPT / HTML / CSS / MERN</h3>
+        </motion.div>
+
+        <motion.div className="home-img" variants={imageVariants}>
           <Image src={fall2023Image} alt="HomePage Photo" />
         </motion.div>
       </motion.div>
+
       <div>
         <AboutMe />
         <Portfolio />

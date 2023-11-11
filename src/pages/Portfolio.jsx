@@ -4,6 +4,8 @@ import GitHubFollow from "../components/GitHubFollow/GitHubFollow";
 import { Card, Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 
+
+
 const Portfolio = () => {
   const [portfolios, setPortfolios] = useState([
     {
@@ -30,18 +32,13 @@ const Portfolio = () => {
   ]);
 
   const cardVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
   };
-
-  
-
-
-
 
   return (
     <>
-      <div className="mt-5 mb-5" style={{height:"100px"}}>
+      <div className="mt-5 mb-5" style={{ height: "100px" }}>
         <Container>
           <Row className="justify-content-between align-items-center">
             <Col>
@@ -53,8 +50,8 @@ const Portfolio = () => {
           </Row>
         </Container>
       </div>
-      <Container>
-        <Row className="justify-content-between">
+      <Container className="portfolio-container">
+        <Row className="portfolio-row">
           {portfolios.map((portfolio) => (
             <Col key={portfolio.id} md={4} className="mb-1">
               <motion.div
@@ -62,10 +59,8 @@ const Portfolio = () => {
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                drag
-                dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
                 <Card style={{ width: "100%" }}>
                   <h3>{portfolio.title}</h3>
@@ -81,7 +76,5 @@ const Portfolio = () => {
   );
 };
 
-
-
-
 export default Portfolio;
+
