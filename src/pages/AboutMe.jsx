@@ -41,7 +41,18 @@ const AboutMe = () => {
         animate="visible"
       >
         <motion.div className="about-img" variants={contentVariants}>
-          <Image style={{ width: "100%" }} src={lizardImg} />
+          <a 
+           href="https://www.instagram.com/picsbyschick"
+           target="_blank"
+           rel="noopener noreferrer"
+         >
+          <motion.div
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 50 }}
+        >
+          <Image style={{ width: "90%" }} src={lizardImg} />
+          </motion.div>
+          </a>
         </motion.div>
 
         <motion.div className="about-content" variants={imageVariants}>
