@@ -3,6 +3,7 @@ import { LinkedInFollow } from "../components";
 import GitHubFollow from "../components/GitHubFollow/GitHubFollow";
 import { Card, Container, Row, Col, Image } from "react-bootstrap";
 import { motion } from "framer-motion";
+import "../app.css";
 
 const Portfolio = () => {
   const [portfolios, setPortfolios] = useState([
