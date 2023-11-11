@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { LinkedInFollow } from "../components";
 import GitHubFollow from "../components/GitHubFollow/GitHubFollow";
-import { Card, Container, Row, Col } from "react-bootstrap";
+import { Card, Container, Row, Col, Image } from "react-bootstrap";
 import { motion } from "framer-motion";
-
-
 
 const Portfolio = () => {
   const [portfolios, setPortfolios] = useState([
@@ -12,22 +10,22 @@ const Portfolio = () => {
       id: 1,
       title: "Project One",
       description: "Project One description",
-      img: "",
-      link: "",
+      img: "src/img/projectone.png",
+      link: "https://www.github.com/karenschick",
     },
     {
       id: 2,
       title: "Project Two",
       description: "Project Two description",
-      img: "",
-      link: "",
+      img: "src/img/projecttwo.png",
+      link: "https://www.github.com/karenschick",
     },
     {
       id: 3,
       title: "Project Three",
       description: "Project Three description",
-      img: "",
-      link: "",
+      img: "src/img/projectthree.png",
+      link: "https://www.github.com/karenschick",
     },
   ]);
 
@@ -40,11 +38,11 @@ const Portfolio = () => {
     <>
       <div className="mt-5 mb-5" style={{ height: "100px" }}>
         <Container>
-          <Row className="justify-content-between align-items-center">
+          <Row className="align-items-center d-flex">
             <Col>
               <h1>Projects</h1>
             </Col>
-            <Col>
+            <Col className="ml-auto">
               <LinkedInFollow />
             </Col>
           </Row>
@@ -62,11 +60,20 @@ const Portfolio = () => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Card style={{ width: "100%" }}>
-                  <h3>{portfolio.title}</h3>
-                  <p>{portfolio.description}</p>
-                  <GitHubFollow />
-                </Card>
+                <a
+                  href={portfolio.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Card style={{ width: "100%", padding: "15px" }}>
+                    <h3>{portfolio.title}</h3>
+                    <p>{portfolio.description}</p>
+                    <Image
+                      style={{ width: "100%", height: "200px" }}
+                      src={portfolio.img}
+                    />
+                  </Card>
+                </a>
               </motion.div>
             </Col>
           ))}
@@ -77,4 +84,3 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
-
