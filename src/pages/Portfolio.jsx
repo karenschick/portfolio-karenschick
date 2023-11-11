@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { LinkedInFollow } from "../components";
 import GitHubFollow from "../components/GitHubFollow/GitHubFollow";
 import { Card, Container, Row, Col } from "react-bootstrap";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const Portfolio = () => {
   const [portfolios, setPortfolios] = useState([
@@ -34,8 +34,25 @@ const Portfolio = () => {
     visible: { opacity: 1 },
   };
 
+  
+
+
+
+
   return (
     <>
+      <div className="header" style={{height:"100px"}}>
+        <Container>
+          <Row className="justify-content-between align-items-center">
+            <Col>
+              <h1>Header.....................................</h1>
+            </Col>
+            <Col>
+              <LinkedInFollow />
+            </Col>
+          </Row>
+        </Container>
+      </div>
       <Container>
         <Row className="justify-content-between">
           {portfolios.map((portfolio) => (
@@ -53,19 +70,18 @@ const Portfolio = () => {
                 <Card style={{ width: "100%" }}>
                   <h3>{portfolio.title}</h3>
                   <p>{portfolio.description}</p>
+                  <GitHubFollow />
                 </Card>
               </motion.div>
             </Col>
           ))}
         </Row>
       </Container>
-      <div>
-        <LinkedInFollow />
-        <GitHubFollow />
-      </div>
     </>
   );
 };
 
-export default Portfolio;
 
+
+
+export default Portfolio;
