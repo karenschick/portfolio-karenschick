@@ -3,6 +3,8 @@ import { Container, Col, Image, Row } from "react-bootstrap";
 import fall2023Image from "../img/fall2023.jpg";
 import "../app.css";
 import { motion } from "framer-motion";
+import AboutMe from "./AboutMe";
+import Portfolio from "./Portfolio";
 
 const HomePage = () => {
   const containerVariants = {
@@ -21,29 +23,35 @@ const HomePage = () => {
   };
 
   return (
-    <motion.div
-      className="container"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      <div className="homePage">
-        <motion.div className="homePageContent" variants={contentVariants}>
-          <h1 className="title">
-            <span>Hi!</span> <br />
-            <span>I'm Karen,</span>
-            <br />
-            <span>web developer.</span>
-          </h1>
-          <span className="homePageDescription">
-            JAVASCRIPT / HTML / CSS / MERN
-          </span>
+    <>
+      <motion.div
+        className="container"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="homePage">
+          <motion.div className="homePageContent" variants={contentVariants}>
+            <h1 className="title">
+              <span>Hi!</span> <br />
+              <span>I'm Karen,</span>
+              <br />
+              <span>web developer.</span>
+            </h1>
+            <span className="homePageDescription">
+              JAVASCRIPT / HTML / CSS / MERN
+            </span>
+          </motion.div>
+        </div>
+        <motion.div className="homePageImage" variants={imageVariants}>
+          <Image src={fall2023Image} alt="HomePage Photo" />
         </motion.div>
-      </div>
-      <motion.div className="homePageImage" variants={imageVariants}>
-        <Image src={fall2023Image} alt="HomePage Photo" />
       </motion.div>
-    </motion.div>
+      <div>
+        <AboutMe />
+        <Portfolio />
+      </div>
+    </>
   );
 };
 
