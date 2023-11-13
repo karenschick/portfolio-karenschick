@@ -10,7 +10,7 @@ function Navigation() {
   return (
     <>
     
-    <Navbar expand="lg" bg="transparent" variant="light" className="navbar" >
+    <Navbar expand="lg" bg="transparent" variant="light" className="home-navbar" >
       
       <Nav className="mx-auto mt-5">
       <Nav.Link as={Link} to="/">
