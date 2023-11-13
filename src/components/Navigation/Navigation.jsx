@@ -1,14 +1,18 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
+
+import "./Navigation.css"
+
 
 function Navigation() {
   return (
-    <Navbar bg="light" data-bs-theme="light">
-      <Nav className="me-auto">
-      </Nav>
-      <Nav>
+    <>
+    
+    <Navbar expand="lg" bg="transparent" variant="light" className="navbar" >
+      
+      <Nav className="mx-auto mt-5">
       <Nav.Link as={Link} to="/">
           Home
         </Nav.Link>
@@ -18,9 +22,12 @@ function Navigation() {
         <Nav.Link as={Link} to="/Portfolio">
           Portfolio
         </Nav.Link>
-        <a href="mailto:karen.schick6@gmail.com">Email!</a>
+        <a href="mailto:karen.schick6@gmail.com">Contact</a>
       </Nav>
     </Navbar>
+   
+   
+    </>
   );
 }
 

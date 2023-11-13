@@ -21,48 +21,49 @@ const AboutMe = () => {
 
   return (
     <>
-      <div className="mt-5 " style={{ height: "100px" }}>
-        <Container>
-          <Row style={{ width: "100%" }}>
-            <Col>
-              <h1>About Me</h1>
-            </Col>
-            <Col>
-              <InstagramFollow />
-            </Col>
-          </Row>
-        </Container>
-      </div>
+      
 
-      <motion.div
-        className="container"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.div className="about-img" variants={contentVariants}>
-          <a 
-           href="https://www.instagram.com/picsbyschick"
-           target="_blank"
-           rel="noopener noreferrer"
-         >
-          <motion.div
-          whileHover={{ scale: 1.1 }}
-          transition={{ type: "spring", stiffness: 50 }}
+      <div style={{ display: "flex",width: "60%", justifyContent: "center", marginTop:"100px" }}>
+        <motion.div
+          className="about-container"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          <Image style={{ width: "90%" }} src={lizardImg} />
-          </motion.div>
-          </a>
+          <div className="about-img">
+            <motion.div variants={contentVariants}>
+              <a
+                href="https://www.instagram.com/picsbyschick"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 50 }}
+                >
+                  <Image
+                    style={{ width: "100%" }}
+                    src={lizardImg}
+                    alt="Lizard"
+                  />
+                </motion.div>
+              </a>
+            </motion.div>
+          </div>
+          <div className="about-content">
+            <motion.div variants={imageVariants}>
+              <div style={{ width: "100%" }}>
+                blah blah blah 
+                <br />
+                education and inpsiration
+                <br />
+                when not banging my head against the wall coding you'll find me
+                hiking, photographing wildlife, painting, or cleaning.
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
-
-        <motion.div className="about-content" variants={imageVariants}>
-          <Card style={{ width: "100%" }}>
-            blah blah blah <br />
-            when not banging my head against the wall coding you'll find me
-            hiking, taking photos of wildlife, painting, or cleaning.
-          </Card>
-        </motion.div>
-      </motion.div>
+      </div>
     </>
   );
 };

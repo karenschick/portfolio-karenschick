@@ -1,0 +1,13 @@
+
+  
+  .navbar .nav-link {
+    color: black; 
+    margin: 0 25px; 
+  }
+
+  .navbar a{
+    display: flex;
+    text-decoration: none;
+    color:black;
+    align-items: center;
+  }

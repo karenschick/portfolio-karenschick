@@ -3,8 +3,8 @@ import { Container, Col, Image, Row } from "react-bootstrap";
 import fall2023Image from "../img/fall2023.jpg";
 import "../app.css";
 import { motion } from "framer-motion";
-import AboutMe from "./AboutMe";
-import Portfolio from "./Portfolio";
+// import AboutMe from "./AboutMe";
+// import Portfolio from "./Portfolio";
 
 const HomePage = () => {
   const containerVariants = {
@@ -25,7 +25,7 @@ const HomePage = () => {
   return (
     <>
       <motion.div
-        className="container"
+        className="home-container"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -41,14 +41,11 @@ const HomePage = () => {
         </motion.div>
 
         <motion.div className="home-img" variants={imageVariants}>
-          <Image src={fall2023Image} alt="HomePage Photo" />
+          <Image style={{width:"300px"}} src={fall2023Image} alt="HomePage Photo" />
         </motion.div>
       </motion.div>
 
-      <div>
-        <AboutMe />
-        <Portfolio />
-      </div>
+      
     </>
   );
 };

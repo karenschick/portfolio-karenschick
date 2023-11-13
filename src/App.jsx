@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { HomePage, AboutMe, Portfolio } from "./pages";
 import { Navigation } from "./components";
 import { AnimatePresence, motion } from "framer-motion";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   
@@ -17,7 +18,7 @@ const App = () => {
           <Route path="/Portfolio" element={<Portfolio />}></Route>
           <Route path="*" element={<div>404 Not Found</div>}></Route>
         </Routes>
-        
+      <Footer/> 
       </div>
     </>
   );
