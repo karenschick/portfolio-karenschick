@@ -37,18 +37,6 @@ const Portfolio = () => {
 
   return (
     <>
-      {/* <div className="mt-5 mb-5" style={{ height: "100px" }}>
-        <Container>
-          <Row className="align-items-center d-flex">
-            <Col>
-              <h1>Projects</h1>
-            </Col>
-            <Col className="ml-auto">
-              <LinkedInFollow />
-            </Col>
-          </Row>
-        </Container>
-      </div> */}
       <Container className="portfolio-container mt-5 mb-5">
         <Row className="portfolio-row">
           {portfolios.map((portfolio) => (
@@ -67,14 +55,13 @@ const Portfolio = () => {
                   rel="noopener noreferrer"
                 >
                   <Card style={{ width: "100%", padding: "15px" }}>
-                    
                     <Image
                       style={{ width: "100%", height: "200px" }}
                       src={portfolio.img}
                     />
                     <div className="mt-4">
-                    <h3>{portfolio.title}</h3>
-                    <p>{portfolio.description}</p>
+                      <h3>{portfolio.title}</h3>
+                      <p>{portfolio.description}</p>
                     </div>
                   </Card>
                 </a>

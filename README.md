@@ -1,5 +1,59 @@
 # React + Vite
 
+
+## Sources
+https://www.digitalocean.com/community/tutorials/creating-a-social-follow-componenfortt-in-react
+
+https://dev.to/cooljasonmelton/more-stuff-you-can-do-with-mailto-3o89
+
+
+## Notes
+-have social media open new tab
+target="_blank"
+-how do i uninstall fort awesome icons? convert to different style?
+just going to keep for now
+-uninstall @react-email/link
+do i still need to do this?
+-style contact - email link not working great
+working now
+-navbar sticky
+done
+-portfolio and about me have similar animation as homepage
+decided to make portfolio animation different
+-should make DRY css for animation
+-make image a link to instagram
+done
+-gitHub follow difficult to select on portfolio card
+removed link and made entire card linkable instead
+-fix pages folder
+-make footer stick to bottom of the page
+-make navbar text larger
+done
+-Contact is not inline when screen minimizes
+
+## Extra Code
+function Resume() {
+  return (
+    <>
+    <a href={resume} target="_blank" rel="noreferrer">Resume</a>
+    </>
+  )
+}
+
+ {/* <div className="mt-5 mb-5" style={{ height: "100px" }}>
+        <Container>
+          <Row className="align-items-center d-flex">
+            <Col>
+              <h1>Projects</h1>
+            </Col>
+            <Col className="ml-auto">
+              <LinkedInFollow />
+            </Col>
+          </Row>
+        </Container>
+      </div> */}
+
+
 {/* <div className="header-container mt-5 " style={{ height: "100px" }}>
         <Container>
           <Row style={{ width: "100%" }}>
@@ -17,40 +71,6 @@
         <AboutMe />
         <Portfolio />
       </div> */}
-
-## Sources
-https://www.digitalocean.com/community/tutorials/creating-a-social-follow-componenfortt-in-react
-
-https://dev.to/cooljasonmelton/more-stuff-you-can-do-with-mailto-3o89
-
-
-## Questions
--have social media open new tab
-target="_blank"
--how do i uninstall fort awesome icons? convert to different style?
--uninstall @react-email/link
--style contact - email link not working great
-working now
--navbar larger
--padding on right of navbar
--navbar sticky
--portfolio and about me have similar animation as homepage
--should make DRY css for animation
--padding or margin on entire page seems off
--about me header change
--about me style img, card and icon
--maybe put icon in header of aboutme
--portfolio needs header
--portfolio cards need styling, image, gitlink
--portfolio separate inital usestate
--make image a link to instagram
--gitHub follow difficult to select on portfolio card
-removed link and made entire card linkable instead
--fix pages folder
--make footer stick to bottom of the page
--make navbar text larger
-
-
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
