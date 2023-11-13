@@ -10,6 +10,7 @@ function GitHubFollow() {
         href="https://www.github.com/karenschick"
         className="gitHub social"
         target="_blank"
+        rel="noopener noreferrer"
       >
         <FontAwesomeIcon icon={faGithub} size="2x" /> 
       </a>
