@@ -12,54 +12,66 @@
 .homePage {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 30px;
 }
 
 .home-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
+  
   gap: 20px;
 }
 
 .home-title {
   font-size: 70px;
   font-weight: 500;
-  align-self: stretch;
+  
 }
 
 .home-subtitle {
   font-size: 20px;
   font-weight: 400;
   line-height: 35px;
+  
 }
 
 .home-img {
   display: flex;
+  justify-content: center;
 }
 
 .home-img > img {
-  width: 50%;
-  height: 100%;
-  align-items: flex-end;
+  width: 100%;
+  align-items: center;
 }
+
+
 
 .about-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 50px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 30px;
+  max-width: 70%;
+  height: 100vh;
+}
+
+.about-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
 }
 
 .about-img {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
+  justify-content: flex-end;
 }
+
 
 .about-content {
   display: flex;

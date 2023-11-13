@@ -21,13 +21,13 @@ const AboutMe = () => {
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          width: "60%",
-          justifyContent: "center",
-          marginTop: "100px",
-        }}
+      <div className="about-page"
+        // style={{
+        //   display: "flex",
+        //   width: "60%",
+        //   justifyContent: "center",
+        //   marginTop: "100px",
+        // }}
       >
         <motion.div
           className="about-container"
@@ -47,7 +47,7 @@ const AboutMe = () => {
                   transition={{ type: "spring", stiffness: 50 }}
                 >
                   <Image
-                    style={{ width: "100%" }}
+                    style={{ width: "95%"}}
                     src={lizardImg}
                     alt="Lizard"
                   />
@@ -57,7 +57,7 @@ const AboutMe = () => {
           </div>
           <div className="about-content">
             <motion.div variants={imageVariants} className="about-font">
-              <div style={{ width: "100%" }}>
+              <div style={{ width: "95%" }}>
                 blah blah blah
                 <br />
                 edumacation and inspiration
