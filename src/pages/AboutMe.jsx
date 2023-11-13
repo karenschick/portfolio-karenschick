@@ -21,9 +21,14 @@ const AboutMe = () => {
 
   return (
     <>
-      
-
-      <div style={{ display: "flex",width: "60%", justifyContent: "center", marginTop:"100px" }}>
+      <div
+        style={{
+          display: "flex",
+          width: "60%",
+          justifyContent: "center",
+          marginTop: "100px",
+        }}
+      >
         <motion.div
           className="about-container"
           variants={containerVariants}
@@ -53,7 +58,7 @@ const AboutMe = () => {
           <div className="about-content">
             <motion.div variants={imageVariants} className="about-font">
               <div style={{ width: "100%" }}>
-                blah blah blah 
+                blah blah blah
                 <br />
                 edumacation and inspiration
                 <br />

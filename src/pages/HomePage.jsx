@@ -41,11 +41,13 @@ const HomePage = () => {
         </motion.div>
 
         <motion.div className="home-img" variants={imageVariants}>
-          <Image style={{width:"300px"}} src={fall2023Image} alt="HomePage Photo" />
+          <Image
+            style={{ width: "300px" }}
+            src={fall2023Image}
+            alt="HomePage Photo"
+          />
         </motion.div>
       </motion.div>
-
-      
     </>
   );
 };
