@@ -4,6 +4,7 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import GitHubFollow from '../GitHubFollow/GitHubFollow';
 import LinkedInFollow from '../LinkedInFollow/LinkedInFollow';
 import InstagramFollow from '../InstagramFollow/InstagramFollow';
+import Resume from '../Resume/Resume';
 
 function Footer() {
   
@@ -20,7 +21,9 @@ function Footer() {
           <Nav.Link>
             <InstagramFollow />
           </Nav.Link>
+          <Resume/>
         </Nav>
+
       </Navbar>
     </>
   );
