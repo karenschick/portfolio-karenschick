@@ -51,11 +51,11 @@ const AboutMe = () => {
             </motion.div>
           </div>
           <div className="about-content">
-            <motion.div variants={imageVariants}>
+            <motion.div variants={imageVariants} className="about-font">
               <div style={{ width: "100%" }}>
                 blah blah blah 
                 <br />
-                education and inpsiration
+                edumacation and inspiration
                 <br />
                 when not banging my head against the wall coding you'll find me
                 hiking, photographing wildlife, painting, or cleaning.
