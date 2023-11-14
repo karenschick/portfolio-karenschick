@@ -22,12 +22,7 @@ const AboutMe = () => {
   return (
     <>
       <div className="about-page"
-        // style={{
-        //   display: "flex",
-        //   width: "60%",
-        //   justifyContent: "center",
-        //   marginTop: "100px",
-        // }}
+        
       >
         <motion.div
           className="about-container"
