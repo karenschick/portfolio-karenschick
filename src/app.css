@@ -6,7 +6,12 @@
   justify-content: space-between;
   gap: 30px;
   max-width: 100%;
-  margin: 0 auto; /* Center the container */
+  margin: 0 auto; 
+}
+
+.home-container a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .homePage {
@@ -24,6 +29,8 @@
   gap: 20px;
 }
 
+
+
 .home-title {
   font-size: 60px;
   font-weight: 500;  
@@ -38,8 +45,8 @@
 
 .home-img {
   display: flex;
-  justify-content: center;
-  margin-right: auto;
+  justify-content: flex-start;
+  margin-left: 150px;
 }
 
 .home-img > img {
@@ -77,6 +84,11 @@
   display: flex;
 }
 
+.about-content a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .about-font {
   font-family: "Roboto", sans-serif;
   font-size: 25px;
@@ -87,6 +99,7 @@
   padding-left: 0;
   padding-right: 0;
   margin-top: 200px;
+  margin-bottom: 200px;
 }
 
 .portfolio-row {
@@ -101,3 +114,5 @@
   text-decoration: none;
   color: inherit;
 }
+
+

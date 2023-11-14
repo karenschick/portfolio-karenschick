@@ -2,6 +2,7 @@ import { Container, Row, Col, Image, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
 import lizardImg from "../img/lizard.jpg";
 import { InstagramFollow } from "../components";
+import { Link } from "react-router-dom";
 
 const AboutMe = () => {
   const containerVariants = {
@@ -55,7 +56,9 @@ const AboutMe = () => {
               <div style={{ width: "95%" }}>
                 blah blah blah
                 <br />
+                <Link to="/Portfolio">
                 edumacation and inspiration
+                </Link>
                 <br />
                 when not banging my head against the wall coding you'll find me
                 hiking, photographing wildlife, painting, or cleaning.

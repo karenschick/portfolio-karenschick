@@ -9,12 +9,14 @@ import "./Footer.css";
 function Footer() {
   return (
     <>
-      <Navbar expand="lg" bg="transparent" variant="light">
+      <Navbar  bg="transparent" variant="light">
         <Nav className="navbar mx-auto mt-5">
-          <div className="mr-5">
+          <div className="pr-5">
             <GitHubFollow />
           </div>
-          <LinkedInFollow className="mr-3" />
+          <div className="pr-5">
+          <LinkedInFollow />
+          </div>
           <InstagramFollow className="mr-3" />
           <Resume />
         </Nav>
