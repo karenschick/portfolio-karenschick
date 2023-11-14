@@ -22,9 +22,7 @@ const AboutMe = () => {
 
   return (
     <>
-      <div className="about-page"
-        
-      >
+      <div className="about-page">
         <motion.div
           className="about-container"
           variants={containerVariants}
@@ -43,7 +41,7 @@ const AboutMe = () => {
                   transition={{ type: "spring", stiffness: 50 }}
                 >
                   <Image
-                    style={{ width: "95%"}}
+                    style={{ width: "95%" }}
                     src={lizardImg}
                     alt="Lizard"
                   />
@@ -56,9 +54,7 @@ const AboutMe = () => {
               <div style={{ width: "95%" }}>
                 blah blah blah
                 <br />
-                <Link to="/Portfolio">
-                edumacation and inspiration
-                </Link>
+                <Link to="/Portfolio">edumacation and inspiration</Link>
                 <br />
                 when not banging my head against the wall coding you'll find me
                 hiking, photographing wildlife, painting, or cleaning.

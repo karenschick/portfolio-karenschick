@@ -6,23 +6,20 @@ import { AnimatePresence, motion } from "framer-motion";
 import Footer from "./components/Footer/Footer";
 
 const App = () => {
-  
-
   return (
     <>
       <div className="App">
-      <Navigation />
+        <Navigation />
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/AboutMe" element={<AboutMe />}></Route>
           <Route path="/Portfolio" element={<Portfolio />}></Route>
           <Route path="*" element={<div>404 Not Found</div>}></Route>
         </Routes>
-      <Footer/> 
+        <Footer />
       </div>
     </>
   );
 };
 
 export default App;
-
