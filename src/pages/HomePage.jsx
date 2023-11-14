@@ -42,7 +42,7 @@ const HomePage = () => {
 
         <motion.div className="home-img" variants={imageVariants}>
           <Image
-            style={{ width: "300px" }}
+            style={{ width: "400px" }}
             src={fall2023Image}
             alt="HomePage Photo"
           />

@@ -37,7 +37,7 @@ const Portfolio = () => {
 
   return (
     <>
-      <Container className="portfolio-container mt-5 mb-5">
+      <Container className="portfolio-container">
         <Row className="portfolio-row">
           {portfolios.map((portfolio) => (
             <Col key={portfolio.id} md={4} className="mb-1">
