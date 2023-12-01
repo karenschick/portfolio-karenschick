@@ -2,6 +2,10 @@
   color: black;
 }
 
-.nav-link {
+.navbar div {
   margin-right: 15px;
+}
+
+.navbar div:last-child {
+  margin-right: 0;
 }

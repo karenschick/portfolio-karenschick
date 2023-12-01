@@ -10,10 +10,16 @@ function Footer() {
   return (
     <>
       <Navbar bg="transparent" variant="light">
-        <Nav className="navbar mx-auto mt-5">
-          <GitHubFollow />
-          <LinkedInFollow />
-          <InstagramFollow />
+        <Nav className=" mx-auto mt-5">
+          <div>
+            <GitHubFollow />
+          </div>
+          <div>
+            <LinkedInFollow />
+          </div>
+          <div>
+            <InstagramFollow />
+          </div>
           <Resume />
         </Nav>
       </Navbar>
