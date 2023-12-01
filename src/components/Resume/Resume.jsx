@@ -6,7 +6,7 @@ function Resume() {
     <>
       <div>
         <a href={resume} target="_blank" rel="noreferrer">
-          Resume
+          CV
         </a>
       </div>
     </>
