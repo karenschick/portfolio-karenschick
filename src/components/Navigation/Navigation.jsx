@@ -23,7 +23,7 @@ function Navigation() {
           <Nav.Link as={Link} to="/Portfolio">
             Portfolio
           </Nav.Link>
-          <a href="mailto:karen.schick6@gmail.com">Contact</a>
+          <Nav.Link href="mailto:karen.schick6@gmail.com">Contact</Nav.Link>
         </Nav>
       </Navbar>
     </>
