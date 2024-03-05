@@ -1,8 +1,9 @@
 import { Container, Row, Col, Image, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
-import lizardImg from "../img/lizard.jpg";
+
 import { InstagramFollow } from "../components";
 import { Link } from "react-router-dom";
+import AboutCarousel from "../components/AboutCarousel/AboutCarousel";
 
 const AboutMe = () => {
   const containerVariants = {
@@ -40,11 +41,7 @@ const AboutMe = () => {
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 50 }}
                 >
-                  <Image
-                    style={{ width: "95%" }}
-                    src={lizardImg}
-                    alt="Lizard"
-                  />
+                  <AboutCarousel />
                 </motion.div>
               </a>
             </motion.div>
