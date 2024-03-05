@@ -51,13 +51,24 @@ const AboutMe = () => {
           </div>
           <div className="about-content">
             <motion.div variants={imageVariants} className="about-font">
-              <div style={{ width: "95%" }}>
-                blah blah blah
-                <br />
-                <Link to="/Portfolio">edumacation and inspiration</Link>
-                <br />
-                when not banging my head against the wall coding you'll find me
-                hiking, photographing wildlife, painting, or cleaning.
+              <div style={{ width: "95%", fontSize: "smaller" }}>
+                When I'm not furiously debugging code or crafting elegant web
+                solutions, you'll likely find me out in the wild, hiking trails
+                and photographing elusive wildlife. Or perhaps I'll be indoors,
+                brushing strokes onto a canvas or meticulously organizing my
+                space – because even code wizards need a bit of tidiness in
+                their lives. Armed with a{" "}
+                <Link to="/Portfolio">
+                  Full Stack Web Development Certificate (MERN)
+                </Link>{" "}
+                and a knack for problem-solving, I thrive on the balance between
+                creativity and logic. From navigating through HTML and CSS to
+                orchestrating the symphony of Node.js and React, I revel in the
+                artistry of coding. But don't let the digital world fool you;
+                I'm just as adept at collaborating with teams and resolving
+                conflicts as I am at debugging lines of code. With a passion for
+                innovation and an eye for detail, I'm on a quest for new
+                challenges in the ever-evolving realm of web development.
               </div>
             </motion.div>
           </div>
