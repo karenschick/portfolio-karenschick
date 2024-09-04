@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Container, Button, Modal } from "react-bootstrap";
 import ContactForm from "../Contact/ContactForm";
-//import "./Navigation.css";
 
 function Navigation() {
   const [modalShow, setModalShow] = useState(false);
