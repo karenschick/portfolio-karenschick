@@ -1,0 +1,12 @@
+.footer-wrapper {
+  background-color: transparent;
+  color: black;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  margin-top: auto;
+}
+
+.footer-wrapper div {
+  display: inline-block;
+}

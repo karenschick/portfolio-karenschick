@@ -1,0 +1,55 @@
+
+/* src/app.css */
+
+.home-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.section-spacing {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.about-page a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.profile-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.portfolio-card a {
+  text-decoration: none;
+  color: inherit;
+}
+/* Apply base font to entire site */
+html, body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 200;
+  line-height: 1.6;
+}
+body * {
+  font-family: inherit;
+}
+.about-text {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+
+/* Use Julius for headings, nav, etc. */
+h1, h2, h3, h4, h5, h6,
+.nav-link,
+button,
+.menu-toggle {
+  font-family: 'Lato', sans-serif;
+  font-weight: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+

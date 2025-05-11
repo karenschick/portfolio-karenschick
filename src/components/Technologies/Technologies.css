@@ -1,0 +1,47 @@
+/* Technologies.css */
+
+#tech-scroll-wrapper {
+  position: relative;
+  padding: 2rem 0;
+}
+#progress {
+  position: absolute;
+  top: -1.5rem;
+  left: 1rem;
+  transform: rotate(-90deg);
+}
+#tech-scroll-wrapper .bg {
+  stroke: #ddd;
+  stroke-width: 8%;
+  fill: none;
+}
+#tech-scroll-wrapper .indicator {
+  stroke: var(--bs-secondary);
+  stroke-width: 8%;
+  fill: none;
+}
+.tech-list {
+  display: flex;
+  list-style: none;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem;
+  margin: 0;
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--bs-secondary) transparent;
+}
+.tech-item {
+  flex: 0 0 auto;
+}
+/* Webkit scrollbar */
+.tech-list::-webkit-scrollbar {
+  height: 6px;
+}
+.tech-list::-webkit-scrollbar-thumb {
+  background: var(--bs-secondary);
+  border-radius: 3px;
+}
+.tech-list::-webkit-scrollbar-track {
+  background: transparent;
+}
