@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css"; // Bootstrap CSS for UI styling a
 // Mount the React app to the DOM, wrapping it in BrowserRouter for routing functionality
 ReactDOM.createRoot(document.getElementById("root")).render(
   
-  <BrowserRouter basename="/portfolio">
+  <BrowserRouter basename="/portfolio-karenschick">
     <ThemeProvider><App /></ThemeProvider>
   </BrowserRouter>
 );
