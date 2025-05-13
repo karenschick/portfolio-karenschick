@@ -3,7 +3,12 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import AboutCarousel from "../components/AboutCarousel/AboutCarousel";
 import "../app.css";
-const AboutMe = () => {
+import { useTheme } from "../providers/ThemeProvider";
+
+const AboutMe = ({ openContactForm, isContactOpen }) => {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 1 } },
@@ -21,29 +26,29 @@ const AboutMe = () => {
 
   return (
     <motion.div
-      className="about-page "
+      className="about-page motion-container"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      <Container className="px-3 py-4"
-        style={{
-          height: "80vh",
-          alignContent: "center",
-        }}
-      >
-        <Row className="align-items-center">
+      <Container>
+        <Row className="align-items-center" style={{ overflowX: "hidden" }}>
           {/* Carousel Column */}
-          <Col xs={12} md={6} className="mb-4 mb-md-0">
-            <motion.div variants={contentVariants}>
+          <Col xs={12} sm={12} md={12} lg={6} className="mb-4 mb-md-0">
+            <motion.div
+              variants={contentVariants}
+              className="about-carousel-wrapper"
+            >
               <a
                 href="https://www.instagram.com/picsbyschick"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.03 }}
                   transition={{ type: "spring", stiffness: 50 }}
+                  className="carousel-container"
+                  style={{ overflow: "hidden" }}
                 >
                   <AboutCarousel />
                 </motion.div>
@@ -52,50 +57,52 @@ const AboutMe = () => {
           </Col>
 
           {/* Text Content Column */}
-          <Col xs={12} md={6}>
+          <Col xs={12} sm={12} md={12} lg={6}>
             <motion.div variants={imageVariants}>
               <div className="about-text">
-                <p>
-                  I’m a Computer Science
-                  student at Southern New Hampshire University and a full stack
-                  web developer. I combine a strong technical foundation with
-                  experience in <strong>technical support</strong> and{" "}
-                  <strong>administrative operations</strong>, helping teams work
-                  better together.
-                </p>
-                <p>
-                  I recently trained in the <strong>MERN stack</strong>,
-                  building responsive, scalable apps using React, Node.js,
-                  Express, and MongoDB. I also work with tools like{" "}
-                  <strong>Git</strong>, <strong>Postman</strong>, and{" "}
-                  <strong>Jest</strong> for version control, API testing, and
-                  ensuring quality code.
-                </p>
-                <p>
-                  I'm especially interested in roles that blend development with{" "}
-                  <strong>analysis, testing, or security</strong>. Whether I’m
-                  writing clean code or collaborating with a team, I care about
-                  solving problems that make a difference.
-                </p>
-                <p>
-                  Outside of tech, I’m a <strong>nature photographer</strong>{" "}
-                  and lifelong learner who enjoys building organized, efficient
-                  systems. I'm currently looking for opportunities where I can
-                  grow as a developer or analyst.
-                </p>
-                <p>
-                  <Link to="/Portfolio">Check out my work</Link> or{" "}
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="d-inline-block"
-                    
+                <div>
+                  I’m a Computer Science student at Southern New Hampshire
+                  University and a full stack developer with a background in{" "}
+                  technical support and administrative operations. I help teams
+                  work smarter with both code and communication.
+                </div>
+
+                <div style={{ marginTop: "1rem" }}>
+                  My recent training in theMERN stack taught me to build
+                  responsive, scalable apps using React, Node.js, Express, and
+                  MongoDB. I also use tools like Git, Postman, and Jest to write
+                  and test clean, maintainable code.
+                </div>
+
+                <div style={{ marginTop: "1rem" }}>
+                  I’m especially drawn to roles that blend development with{" "}
+                  testing, analysis, or security. I love solving real problems
+                  with code and collaborating to build better systems.
+                </div>
+
+                <div style={{ marginTop: "1rem" }}>
+                  Outside of tech, I’m a nature photographer and lifelong
+                  learner who enjoys organizing, exploring, and improving
+                  everything I work on.
+                </div>
+
+                <div style={{ marginTop: "1rem" }}>
+                  <motion.span
+                    whileHover={{ scale: 1.02 }}
+                    className="d-inline-block custom-link"
                   >
-                    <Link to="/ContactForm" className="custom-link">
-                      let’s connect
-                    </Link>
-                  </motion.div>
-                  !
-                </p>
+                    <Link to="/Portfolio">See my work</Link>{" "}
+                  </motion.span>{" "}
+                  or{" "}
+                  <motion.span
+                    whileHover={{ scale: 1.02 }}
+                    className="d-inline-block custom-link"
+                    onClick={openContactForm}
+                    style={{ cursor: "pointer" }}
+                  >
+                    get in touch!
+                  </motion.span>
+                </div>
               </div>
             </motion.div>
           </Col>

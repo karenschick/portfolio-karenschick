@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import ContactForm from "../Contact/ContactForm";
@@ -11,9 +11,9 @@ import "./Navigation.css";
 import LinkedInFollow from "../LinkedInFollow/LinkedInFollow";
 import GitHubFollow from "../GitHubFollow/GitHubFollow";
 
-const Navigation = ({ isModalOpen }) => {
+const Navigation = ({ openContactForm, isContactOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [contactModalShow, setContactModalShow] = useState(false);
+
   const [animationReady, setAnimationReady] = useState(false); // Track when the animation should start
   const { theme } = useTheme();
   const isDark = theme === "dark";
@@ -28,12 +28,12 @@ const Navigation = ({ isModalOpen }) => {
     setAnimationReady(false);
     const timeout = setTimeout(() => {
       setAnimationReady(true);
-    }, 100); // adjust delay if needed
+    }, 100);
 
     return () => clearTimeout(timeout);
   }, [location.pathname]); // this runs on initial load AND on route changes
 
-  if (isModalOpen) return null;
+  if (isContactOpen) return null;
 
   return (
     <>
@@ -44,21 +44,23 @@ const Navigation = ({ isModalOpen }) => {
           className="menu-toggle"
           onClick={toggleMenu}
           aria-label="Menu"
-          // initial={{ opacity: 0, x: "850%" }}
+          // initial={{ opacity: 0, x: "850%" }} // starts from middle returns to normal
           // animate={{ opacity: 1, y: "50%", x: "50%" }}
           //
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: [3, 1] }} // enlarges and returns to normal
+          initial={{ opacity: 0, scale: 2 }}
+          animate={{ opacity: 1, scale: 1 }} // enlarges and returns to normal
           transition={{
             duration: 0.8,
             ease: "easeOut",
           }}
           style={{
             position: "fixed",
-            top: "3%",
-            left: "2%",
-            transform: "translate(-50%, -50%)",
+            top: "1rem",
+            left: "1rem",
+            // transform: "translate(-50%, -50%)",
+            zIndex: 10000,
           }}
+          whileHover={{ scale: 1.05 }}
         >
           <motion.div
             animate={{
@@ -74,7 +76,7 @@ const Navigation = ({ isModalOpen }) => {
               minWidth: "150px",
               minHeight: "150px",
               overflow: "hidden",
-              borderRadius: "50%",
+              borderRadius: "5%",
             }}
           >
             <img
@@ -156,23 +158,26 @@ const Navigation = ({ isModalOpen }) => {
             >
               <ThemeToggle />
 
-              <Link to="/" className="nav-link" onClick={closeMenu}>
+              <Link to="/" className="nav-link follow-icon" onClick={closeMenu}>
                 Home
               </Link>
-              <Link to="/AboutMe" className="nav-link" onClick={closeMenu}>
+              <Link
+                to="/AboutMe"
+                className="nav-link follow-icon"
+                onClick={closeMenu}
+              >
                 About Me
               </Link>
-              <Link to="/Portfolio" className="nav-link" onClick={closeMenu}>
+              <Link
+                to="/Portfolio"
+                className="nav-link follow-icon"
+                onClick={closeMenu}
+              >
                 Portfolio
               </Link>
-              <GitHubFollow className="follow-icon" />
-
-              <LinkedInFollow className="follow-icon" />
-
-              <InstagramFollow className="nav-link" />
-
               <Button
-                className=" mt-3"
+                size="lg"
+                className=" m-3 follow-icon"
                 style={{
                   fontFamily: '"Julius Sans One", sans-serif',
                   fontWeight: "bold",
@@ -180,39 +185,22 @@ const Navigation = ({ isModalOpen }) => {
                 variant={isDark ? "light" : "dark"}
                 onClick={() => {
                   closeMenu();
-                  setContactModalShow(true);
+                  openContactForm();
                 }}
               >
                 Contact
               </Button>
+              <div className="social-icons-row">
+                <GitHubFollow className="follow-icon" />
+
+                <LinkedInFollow className="follow-icon" />
+
+                <InstagramFollow className="" />
+              </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Contact Modal */}
-      <Modal
-        show={contactModalShow}
-        onHide={() => setContactModalShow(false)}
-        size="sm"
-        centered
-        backdrop="true"
-        keyboard={true}
-        contentClassName={isDark ? "bg-dark text-white" : "bg-light text-dark"}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title
-            style={{
-              fontFamily: '"Julius Sans One", sans-serif',
-            }}
-          >
-            Contact
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <ContactForm onClose={() => setContactModalShow(false)} />
-        </Modal.Body>
-      </Modal>
     </>
   );
 };

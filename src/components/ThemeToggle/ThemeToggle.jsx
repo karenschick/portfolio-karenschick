@@ -26,11 +26,8 @@ function ThemeToggle() {
           className="ball"
           animate={{ x: isDark ? 60 : 0 }}
           transition={isDark ? bounce : spring}
-        >
-          
-        </motion.div>
+        ></motion.div>
       </div>
-      
     </div>
   );
 }

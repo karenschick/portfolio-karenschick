@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
@@ -21,6 +22,7 @@
     "@react-email/link": "0.0.6",
     "@vitejs/plugin-react": "^4.4.1",
     "bootstrap": "^5.3.6",
+    "emailjs-com": "^3.2.0",
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.1",

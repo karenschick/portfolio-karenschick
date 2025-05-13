@@ -1,3 +1,4 @@
+import React from "react";
 import { Card, Container } from "react-bootstrap";
 import {
   animate,
@@ -23,49 +24,41 @@ export default function TechScroll() {
       name: "HTML5",
       icon: DiCss3,
       description: "Semantic structure & accessibility",
-      experience: "Advanced",
     },
     {
       name: "CSS3",
       icon: DiCss3,
       description: "Flexbox, Grid, animations",
-      experience: "Advanced",
     },
     {
       name: "JavaScript",
       icon: DiJavascript1,
       description: "ES6+, DOM, events",
-      experience: "Advanced",
     },
     {
       name: "React",
       icon: FaReact,
       description: "Hooks, context, routing",
-      experience: "Advanced",
     },
     {
       name: "Node.js",
       icon: FaNodeJs,
       description: "Servers & APIs",
-      experience: "Intermediate",
     },
     {
       name: "Express.js",
       icon: "🚂",
       description: "Routing & middleware",
-      experience: "Intermediate",
     },
     {
       name: "MongoDB",
       icon: SiMongodb,
       description: "NoSQL & Mongoose ODM",
-      experience: "Intermediate",
     },
     {
       name: "Python",
       icon: "🐍",
       description: "Scripting & automation",
-      experience: "Intermediate",
     },
     {
       name: "C++",
@@ -77,26 +70,23 @@ export default function TechScroll() {
       name: "Git & GitHub",
       icon: SiGithub,
       description: "Version control workflows",
-      experience: "Advanced",
     },
     {
       name: "Postman",
       icon: "📬",
       description: "API testing",
-      experience: "Intermediate",
     },
     {
       name: "VS Code",
       icon: "🖥️",
       description: "IDE with extensions",
-      experience: "Advanced",
     },
   ]);
 
   return (
-    <Container className="px-5 py-4" id="tech-scroll-wrapper">
+    <Container className="px-5 py-5" id="tech-scroll-wrapper">
       {/* progress circle */}
-      <svg id="progress" width="60" height="60" viewBox="0 0 100 100">
+      <svg id="progress" width="70" height="70" viewBox="0 0 100 100">
         <circle cx="50" cy="50" r="30" pathLength="1" className="bg" />
         <motion.circle
           cx="50"
@@ -113,8 +103,11 @@ export default function TechScroll() {
           const IconOrGlyph = tech.icon;
           return (
             <li key={i} className="tech-item">
-              <Card style={{ width: "12rem" }} className="h-100 text-center">
-                <div style={{ fontSize: "2rem" }}>
+              <Card
+                style={{ width: "12rem", minHeight: "18rem" }}
+                className="h-100 text-center"
+              >
+                <div style={{ fontSize: "6rem", marginTop: "1.2rem" }}>
                   {
                     // if it’s a React component, render it; otherwise it's already a string/emoji
                     typeof IconOrGlyph === "string" ? (
@@ -125,21 +118,22 @@ export default function TechScroll() {
                   }
                 </div>
                 <Card.Body>
-                  <Card.Title style={{ fontSize: "1.2rem" }}>
+                  <Card.Title
+                    style={{ fontSize: "1.7rem" }}
+                    className="card-text"
+                  >
                     {tech.name}
                   </Card.Title>
-                  <Card.Text style={{ fontSize: "0.9rem" }}>
+                  {/* <Card.Text style={{ fontSize: "0.9rem" }}>
                     {tech.description}
-                  </Card.Text>
-                  <small className="text-muted">{tech.experience}</small>
+                  </Card.Text> */}
+                  {/* <small className="text-muted">{tech.experience}</small> */}
                 </Card.Body>
               </Card>
             </li>
           );
         })}
       </motion.ul>
-
-     
     </Container>
   );
 }
@@ -180,4 +174,3 @@ function useScrollOverflowMask(scrollXProgress) {
 
   return maskImage;
 }
-

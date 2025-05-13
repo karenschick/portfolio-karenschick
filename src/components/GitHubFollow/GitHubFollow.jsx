@@ -5,17 +5,17 @@ import "./GitHubFollow.css";
 
 function GitHubFollow() {
   return (
-    <div className="gitHub-container">
+    <div className="gitHub-container follow-icon">
       <a
         href="https://www.github.com/karenschick"
         className="gitHub social"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <FontAwesomeIcon icon={faGithub} size="2x" /> 
+        <FontAwesomeIcon icon={faGithub} size="2x" />
       </a>
     </div>
-  )
+  );
 }
 
-export default GitHubFollow
+export default GitHubFollow;

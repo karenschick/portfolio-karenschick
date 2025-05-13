@@ -10,7 +10,7 @@ function InstagramFollow() {
   
   return (
     
-    <div className="instagram-container">
+    <div className="instagram-container follow-icon">
       <a
         href="https://www.instagram.com/picsbyschick"
         className="instagram social"

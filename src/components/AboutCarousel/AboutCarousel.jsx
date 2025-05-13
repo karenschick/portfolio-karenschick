@@ -75,7 +75,7 @@ function AboutCarousel() {
 
   return (
     <>
-      <div style={{ height: "700px" }}>
+      <div className="carousel-image-wrapper">
         <Carousel
           fade
           pause={false}
@@ -86,22 +86,14 @@ function AboutCarousel() {
         >
           {images.map((img, index) => (
             <Carousel.Item key={index}>
-              <div
-                className="carousel-image-wrapper"
-                style={{
-                  height: "700px", // Fixed height for uniformity
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  overflow: "hidden",
-                }}
-              >
+              <div className="carousel-image-wrapper">
                 <img
+                  className="about-carousel-image"
                   src={img.src}
                   alt={`${index + 1}`} // Alt text based on index
                   loading="lazy" // Lazy load for performance
                   style={{
-                    height: "100%", // Always the same height
+                    // height: "100%", // Always the same height
                     width:
                       img.orientation === "portrait" ||
                       img.orientation === "square"

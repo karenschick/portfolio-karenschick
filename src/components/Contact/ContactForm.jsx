@@ -1,35 +1,24 @@
 import React, { useState } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { Form, Button, Modal } from "react-bootstrap"; // Import form and modal components from React Bootstrap
 
 // Functional component for the contact form
 function ContactForm({ onClose }) {
-  // useState to manage form field values
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  // useForm to manage form field values
+  const [state, handleSubmit] = useForm("manolnzl");
 
-  /**
-   * Handles changes to form inputs
-   * Updates the corresponding field in the formData state
-   */
-  const handleFormChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  /**
-   * Handles form submission
-   * Prevents default page reload and logs form data
-   */
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    console.log("formData:", formData);
-  };
+  if (state.succeeded) {
+    return (
+      <div className="text-center p-3">
+        <h5>Thank you for your message!</h5>
+        <Button variant="secondar" onClick={onClose}></Button>
+      </div>
+    );
+  }
   return (
     <>
       {/* Contact form layout using Bootstrap */}
-      <Form onSubmit={handleFormSubmit}>
+      <Form onSubmit={handleSubmit}>
         {/* Name field */}
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Name</Form.Label>
@@ -37,9 +26,9 @@ function ContactForm({ onClose }) {
             type="text"
             name="name"
             placeholder="Enter full name"
-            value={formData.name}
-            onChange={handleFormChange}
+            required
           ></Form.Control>
+          <ValidationError prefix="Name" field="name" errors={state.errors} />
         </Form.Group>
 
         {/* Email field */}
@@ -49,30 +38,42 @@ function ContactForm({ onClose }) {
             type="email"
             name="email"
             placeholder="Enter email address"
-            value={formData.email}
-            onChange={handleFormChange}
+            required
           ></Form.Control>
+          <ValidationError prefix="Email" field="email" errors={state.errors} />
         </Form.Group>
 
         {/* Message field */}
         <Form.Group className="mb-3" controlId="formBasicMessage">
           <Form.Label>Message</Form.Label>
           <Form.Control
-            type="text"
+            type="textarea"
             name="message"
             placeholder="Enter message"
-            value={formData.message}
-            onChange={handleFormChange}
+            rows={4}
+            required
           ></Form.Control>
+          <ValidationError
+            prefix="Message"
+            field="message"
+            errors={state.errors}
+          />
         </Form.Group>
 
         {/* Submit and Close buttons */}
-        <Button variant="secondary" type="submit">
-          Submit
-        </Button>
-        <Button variant="secondary" onClick={onClose}>
-          Close
-        </Button>
+        <div className="d-flex justify-content-center">
+          <Button
+            className="m-4"
+            variant="secondary"
+            type="submit"
+            disabled={state.submitting}
+          >
+            Submit
+          </Button>
+          <Button className="m-4" variant="secondary" onClick={onClose}>
+            Close
+          </Button>
+        </div>
       </Form>
     </>
   );

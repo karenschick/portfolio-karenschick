@@ -40,20 +40,18 @@ const Portfolio = () => {
 
   return (
     <>
-      <Container className="" style={{
-          height: "80vh",
-          alignContent: "center",
-        }}>
+      <Container className="portfolio-container">
         <Row className="g-4">
           {portfolios.map((portfolio) => (
             <Col key={portfolio.id} xs={12} sm={6} md={4}>
               <motion.div
-                className="portfolio-card h-100"
+                className="portfolio-card-wrapper h-100"
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 0.95 }}
                 whileTap={{ scale: 0.9 }}
+                overflow="hidden"
               >
                 <a
                   href={portfolio.link}

@@ -1,24 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useTheme } from "../providers/ThemeProvider";
 import AboutMe from "./AboutMe";
 import Portfolio from "./Portfolio";
 import { Technologies } from "../components";
 import FadeInSection from "../utils/FadeInSection";
 import "../app.css";
 
-
-const HomePage = () => {
+const HomePage = ({ openContactForm, isContactOpen }) => {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
   // Animation variant for the container fade-in
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 1 } },
   };
 
-  // Slide-in animation for text content
+  // Slide-in animation for text content using percentage
   const contentVariants = {
-    hidden: { x: "-100vw" },
+    hidden: { x: "-100%" },
     visible: {
       x: 0,
       transition: { type: "spring", stiffness: 50, damping: 20 },
@@ -27,7 +29,7 @@ const HomePage = () => {
 
   // Slide-in animation for image content
   const imageVariants = {
-    hidden: { x: "100vw" },
+    hidden: { x: "100%" },
     visible: { x: 0, transition: { type: "spring", stiffness: 50 } },
   };
 
@@ -35,13 +37,16 @@ const HomePage = () => {
     <>
       {/* Animated container for homepage intro section */}
       <motion.div
-        className="py-5"
+        className="py-5 motion-container"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <Container className="home-container p-2">
-          <Row className="align-items-center text-center text-md-start">
+        <Container className="home-container px-3 py-4">
+          <Row
+            className="align-items-center text-center text-md-start"
+            style={{ overflowX: "hidden" }}
+          >
             <Col xs={12} md={6}>
               <Link to="/Portfolio">
                 <motion.div
@@ -64,11 +69,12 @@ const HomePage = () => {
             <Col xs={12} md={6} className="text-center mt-4 mt-md-0">
               <Link to="/AboutMe">
                 <motion.div
+                  style={{ overflow: "hidden", maxHeight: "100%" }}
                   variants={imageVariants}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.02 }}
                 >
                   <Image
-                    style={{ maxWidth: "550px" }}
+                    style={{ maxWidth: "100%", height: "auto" }}
                     src="/portfolio-karenschick/10.jpg"
                     alt="Karen"
                     fluid
@@ -81,23 +87,24 @@ const HomePage = () => {
           </Row>
         </Container>
       </motion.div>
-      
+
       <div className="section-spacing">
         <FadeInSection>
-          <AboutMe />
+          <AboutMe
+            openContactForm={openContactForm}
+            isContactOpen={isContactOpen}
+          />
         </FadeInSection>
       </div>
-      <div className="section-spacing">
+      <div className="section2-spacing">
         <FadeInSection>
           <Technologies />
         </FadeInSection>
       </div>
-      
-        <FadeInSection>
-          <Portfolio />
-        </FadeInSection>
-      
-      
+
+      <FadeInSection>
+        <Portfolio />
+      </FadeInSection>
     </>
   );
 };

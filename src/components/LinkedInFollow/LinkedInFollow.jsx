@@ -5,11 +5,12 @@ import "./LinkedInFollow.css";
 
 function LinkedInFollow() {
   return (
-    <div className="linkedin-container">
+    <div className="linkedin-container follow-icon">
       <a
         href="https://www.linkedin.com/in/karenschick"
-        className="linkedin social"
+        className="follow-icon"
         target="_blank"
+        rel="noopener noreferrer"
       >
         <FontAwesomeIcon
           icon={faLinkedin}
