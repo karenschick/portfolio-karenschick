@@ -10,11 +10,15 @@ import { useTheme } from "../../providers/ThemeProvider";
 import "./Navigation.css";
 import LinkedInFollow from "../LinkedInFollow/LinkedInFollow";
 import GitHubFollow from "../GitHubFollow/GitHubFollow";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const Navigation = ({ openContactForm, isContactOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [animationReady, setAnimationReady] = useState(false); // Track when the animation should start
+  const [isHovered, setIsHovered] = useState(false);
+
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
@@ -47,6 +51,8 @@ const Navigation = ({ openContactForm, isContactOpen }) => {
           // initial={{ opacity: 0, x: "850%" }} // starts from middle returns to normal
           // animate={{ opacity: 1, y: "50%", x: "50%" }}
           //
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
           initial={{ opacity: 0, scale: 2 }}
           animate={{ opacity: 1, scale: 1 }} // enlarges and returns to normal
           transition={{
@@ -79,14 +85,26 @@ const Navigation = ({ openContactForm, isContactOpen }) => {
               borderRadius: "5%",
             }}
           >
-            <img
-              src={imgSrc}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-              }}
-            />
+            {isHovered ? (
+              <FontAwesomeIcon
+                style={{
+                  width: "90%",
+                  height: "90%",
+                  objectFit: "cover",
+                }}
+                icon={faBars}
+                color={isDark ? "white" : "black"}
+              />
+            ) : (
+              <img
+                src={imgSrc}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            )}
           </motion.div>
 
           <motion.path
