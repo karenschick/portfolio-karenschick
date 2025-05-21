@@ -20,7 +20,7 @@ const App = () => {
   return (
     <>
       {/* Wrapper div with application-wide styling */}
-      <div className="App">
+      <div className="page-wrapper">
         {/* Renders the navigation bar across all pages */}
         <Navigation
           openContactForm={handleShowModal}

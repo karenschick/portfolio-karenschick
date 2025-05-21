@@ -15,7 +15,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const Navigation = ({ openContactForm, isContactOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
   const [animationReady, setAnimationReady] = useState(false); // Track when the animation should start
   const [isHovered, setIsHovered] = useState(false);
 
@@ -37,188 +37,367 @@ const Navigation = ({ openContactForm, isContactOpen }) => {
     return () => clearTimeout(timeout);
   }, [location.pathname]); // this runs on initial load AND on route changes
 
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 992);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   if (isContactOpen) return null;
 
   return (
     <>
       {/* Navigation Button Animation */}
 
-      {animationReady && (
-        <motion.button
-          className="menu-toggle"
-          onClick={toggleMenu}
-          aria-label="Menu"
-          // initial={{ opacity: 0, x: "850%" }} // starts from middle returns to normal
-          // animate={{ opacity: 1, y: "50%", x: "50%" }}
-          //
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          initial={{ opacity: 0, scale: 2 }}
-          animate={{ opacity: 1, scale: 1 }} // enlarges and returns to normal
-          transition={{
-            duration: 0.8,
-            ease: "easeOut",
-          }}
-          style={{
-            position: "fixed",
-            top: "1rem",
-            left: "1rem",
-            // transform: "translate(-50%, -50%)",
-            zIndex: 10000,
-          }}
-          whileHover={{ scale: 1.05 }}
-        >
-          <motion.div
-            animate={{
-              rotate: isOpen ? 45 : 0,
-              scale: isOpen ? 1.1 : 1,
-            }}
-            transition={{ duration: 0.3 }}
-            style={{
-              width: "20vw",
-              height: "20vw",
-              maxWidth: "200px",
-              maxHeight: "200px",
-              minWidth: "150px",
-              minHeight: "150px",
-              overflow: "hidden",
-              borderRadius: "5%",
-            }}
-          >
-            {isHovered ? (
-              <FontAwesomeIcon
-                style={{
-                  width: "90%",
-                  height: "90%",
-                  objectFit: "cover",
+      {isMobile && animationReady && (
+        <>
+          <div className="nav-button-wrapper">
+            <motion.button
+              className="menu-toggle"
+              onClick={toggleMenu}
+              aria-label="Menu"
+              // initial={{ opacity: 0, x: "850%" }} // starts from middle returns to normal
+              // animate={{ opacity: 1, y: "50%", x: "50%" }}
+              //
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              initial={{ opacity: 0, scale: 2 }}
+              animate={{ opacity: 1, scale: 1 }} // enlarges and returns to normal
+              transition={{
+                duration: 0.8,
+                ease: "easeOut",
+              }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <motion.div
+                className="menu-icon-container"
+                animate={{
+                  rotate: isOpen ? 45 : 0,
+                  scale: isOpen ? 0.9 : 1,
                 }}
-                icon={faBars}
-                color={isDark ? "white" : "black"}
-              />
-            ) : (
-              <img
-                src={imgSrc}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
-              />
-            )}
-          </motion.div>
+                transition={{ duration: 0.3 }}
+              >
+                {isHovered ? (
+                  <FontAwesomeIcon
+                    style={{
+                      width: isOpen ? "50%" : "90%",
+                      height: isOpen ? "50%" : "90%",
+                      objectFit: "cover",
+                      transition: "width 0.3s ease, height 0.3s ease",
+                    }}
+                    icon={faBars}
+                    color={isDark ? "white" : "black"}
+                  />
+                ) : (
+                  <img
+                    src={imgSrc}
+                    style={{
+                      width: isOpen ? "50%" : "90%",
+                      height: isOpen ? "50%" : "90%",
+                      objectFit: "cover",
+                      transition: "width 0.3s ease, height 0.3s ease",
+                      borderRadius: "5%",
+                    }}
+                  />
+                )}
+              </motion.div>
 
-          <motion.path
-            variants={{
-              closed: { d: "M 2 2.5 L 20 2.5" },
-              open: { d: "M 3 16.5 L 17 2.5" },
-            }}
-            animate={isOpen ? "open" : "closed"}
-          />
-          <motion.path
-            d="M 2 9.423 L 20 9.423"
-            variants={{
-              closed: { opacity: 1 },
-              open: { opacity: 0 },
-            }}
-            initial={{ opacity: 1 }}
-            animate={isOpen ? "open" : "closed"}
-            transition={{ duration: 0.1 }}
-          />
-          <motion.path
-            variants={{
-              closed: { d: "M 2 2.5 L 20 2.5" },
-              open: { d: "M 3 16.5 L 17 2.5" },
-            }}
-            animate={isOpen ? "open" : "closed"}
-          />
-        </motion.button>
+              <motion.path
+                variants={{
+                  closed: { d: "M 2 2.5 L 20 2.5" },
+                  open: { d: "M 3 16.5 L 17 2.5" },
+                }}
+                animate={isOpen ? "open" : "closed"}
+              />
+              <motion.path
+                d="M 2 9.423 L 20 9.423"
+                variants={{
+                  closed: { opacity: 1 },
+                  open: { opacity: 0 },
+                }}
+                initial={{ opacity: 1 }}
+                animate={isOpen ? "open" : "closed"}
+                transition={{ duration: 0.1 }}
+              />
+              <motion.path
+                variants={{
+                  closed: { d: "M 2 2.5 L 20 2.5" },
+                  open: { d: "M 3 16.5 L 17 2.5" },
+                }}
+                animate={isOpen ? "open" : "closed"}
+              />
+            </motion.button>
+          </div>
+        </>
       )}
 
       {/* Full-Screen Menu Overlay */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className={`nav-overlay ${
-              isDark ? "text-white" : "nav-text-light"
-            }`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={closeMenu}
-            style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              width: "100vw",
-              height: "100vh",
-              backgroundColor: isDark
-                ? "rgba(0,0,0,0.95)"
-                : "rgba(255,255,255,0.95)",
-              zIndex: 9999,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+      {isMobile && (
+        <AnimatePresence>
+          {isOpen && (
             <motion.div
-              onClick={(e) => e.stopPropagation()}
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.4 }}
+              className={`nav-overlay ${
+                isDark ? "text-white" : "nav-text-light"
+              }`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeMenu}
               style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                width: "100vw",
+                height: "100vh",
+                backgroundColor: isDark
+                  ? "rgba(0,0,0,0.95)"
+                  : "rgba(255,255,255,0.95)",
+                zIndex: 9999,
                 display: "flex",
                 flexDirection: "column",
-                gap: "1.5rem",
                 alignItems: "center",
+                justifyContent: "center",
               }}
             >
-              <ThemeToggle />
-
-              <Link to="/" className="nav-link follow-icon" onClick={closeMenu}>
-                Home
-              </Link>
-              <Link
-                to="/AboutMe"
-                className="nav-link follow-icon"
-                onClick={closeMenu}
-              >
-                About Me
-              </Link>
-              <Link
-                to="/Portfolio"
-                className="nav-link follow-icon"
-                onClick={closeMenu}
-              >
-                Portfolio
-              </Link>
-              <Button
-                size="lg"
-                className=" m-3 follow-icon"
+              <motion.div
+                onClick={(e) => e.stopPropagation()}
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                transition={{ duration: 0.4 }}
                 style={{
-                  fontFamily: '"Julius Sans One", sans-serif',
-                  fontWeight: "bold",
-                }}
-                variant={isDark ? "light" : "dark"}
-                onClick={() => {
-                  closeMenu();
-                  openContactForm();
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "1.5rem",
+                  alignItems: "center",
                 }}
               >
-                Contact
-              </Button>
-              <div className="social-icons-row">
-                <GitHubFollow className="follow-icon" />
+                <ThemeToggle />
 
-                <LinkedInFollow className="follow-icon" />
+                <Link
+                  to="/"
+                  className="nav-link follow-icon"
+                  onClick={closeMenu}
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/AboutMe"
+                  className="nav-link follow-icon"
+                  onClick={closeMenu}
+                >
+                  About Me
+                </Link>
+                <Link
+                  to="/Portfolio"
+                  className="nav-link follow-icon"
+                  onClick={closeMenu}
+                >
+                  Portfolio
+                </Link>
+                <Button
+                  size="lg"
+                  className=" m-3 follow-icon"
+                  style={{
+                    fontFamily: '"Julius Sans One", sans-serif',
+                    fontWeight: "bold",
+                  }}
+                  variant={isDark ? "light" : "dark"}
+                  onClick={() => {
+                    closeMenu();
+                    openContactForm();
+                  }}
+                >
+                  Contact
+                </Button>
+                <div className="social-icons-row">
+                  <GitHubFollow className="follow-icon" />
 
-                <InstagramFollow className="" />
-              </div>
+                  <LinkedInFollow className="follow-icon" />
+
+                  <InstagramFollow className="" />
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>
+      )}
+
+      {/* Navigation Button Animation */}
+
+      {!isMobile && animationReady && (
+        <>
+          <div className="desktop-menu-toggle">
+            <motion.button
+              className="menu-toggle"
+              onClick={toggleMenu}
+              aria-label="Menu"
+              // initial={{ opacity: 0, x: "850%" }} // starts from middle returns to normal
+              // animate={{ opacity: 1, y: "50%", x: "50%" }}
+              //
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              initial={{ opacity: 0, scale: 2 }}
+              animate={{ opacity: 1, scale: 1 }} // enlarges and returns to normal
+              transition={{
+                duration: 0.8,
+                ease: "easeOut",
+              }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <motion.div
+                className="menu-icon-container"
+                animate={{
+                  rotate: isOpen ? 45 : 0,
+                  scale: isOpen ? 0.9 : 1,
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                {isHovered ? (
+                  <FontAwesomeIcon
+                    style={{
+                      width: isOpen ? "50%" : "90%",
+                      height: isOpen ? "50%" : "90%",
+                      objectFit: "cover",
+                      transition: "width 0.3s ease, height 0.3s ease",
+                    }}
+                    icon={faBars}
+                    color={isDark ? "white" : "black"}
+                  />
+                ) : (
+                  <img
+                    src={imgSrc}
+                    style={{
+                      width: isOpen ? "50%" : "90%",
+                      height: isOpen ? "50%" : "90%",
+                      objectFit: "cover",
+                      transition: "width 0.3s ease, height 0.3s ease",
+                      borderRadius: "5%",
+                    }}
+                  />
+                )}
+              </motion.div>
+
+              <motion.path
+                variants={{
+                  closed: { d: "M 2 2.5 L 20 2.5" },
+                  open: { d: "M 3 16.5 L 17 2.5" },
+                }}
+                animate={isOpen ? "open" : "closed"}
+              />
+              <motion.path
+                d="M 2 9.423 L 20 9.423"
+                variants={{
+                  closed: { opacity: 1 },
+                  open: { opacity: 0 },
+                }}
+                initial={{ opacity: 1 }}
+                animate={isOpen ? "open" : "closed"}
+                transition={{ duration: 0.1 }}
+              />
+              <motion.path
+                variants={{
+                  closed: { d: "M 2 2.5 L 20 2.5" },
+                  open: { d: "M 3 16.5 L 17 2.5" },
+                }}
+                animate={isOpen ? "open" : "closed"}
+              />
+            </motion.button>
+          </div>
+        </>
+      )}
+
+      {/* Full-Screen Menu Overlay */}
+      {!isMobile && (
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className={`nav-overlay ${
+                isDark ? "text-white" : "nav-text-light"
+              }`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeMenu}
+              style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                width: "100vw",
+                height: "100vh",
+                backgroundColor: isDark
+                  ? "rgba(0,0,0,0.95)"
+                  : "rgba(255,255,255,0.95)",
+                zIndex: 9999,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <motion.div
+                onClick={(e) => e.stopPropagation()}
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                transition={{ duration: 0.4 }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "1.5rem",
+                  alignItems: "center",
+                }}
+              >
+                <ThemeToggle />
+
+                <Link
+                  to="/"
+                  className="nav-link follow-icon"
+                  onClick={closeMenu}
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/AboutMe"
+                  className="nav-link follow-icon"
+                  onClick={closeMenu}
+                >
+                  About Me
+                </Link>
+                <Link
+                  to="/Portfolio"
+                  className="nav-link follow-icon"
+                  onClick={closeMenu}
+                >
+                  Portfolio
+                </Link>
+                <Button
+                  size="lg"
+                  className=" m-3 follow-icon"
+                  style={{
+                    fontFamily: '"Julius Sans One", sans-serif',
+                    fontWeight: "bold",
+                  }}
+                  variant={isDark ? "light" : "dark"}
+                  onClick={() => {
+                    closeMenu();
+                    openContactForm();
+                  }}
+                >
+                  Contact
+                </Button>
+                <div className="social-icons-row">
+                  <GitHubFollow className="follow-icon" />
+
+                  <LinkedInFollow className="follow-icon" />
+
+                  <InstagramFollow className="" />
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
     </>
   );
 };

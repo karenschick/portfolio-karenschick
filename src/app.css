@@ -157,11 +157,6 @@ button,
   text-transform: uppercase;
 }
 
-.menu-toggle img {
-  width: 100px;
-  height: 100px;
-}
-
 .carousel-wrapper {
   height: 700px;
 }
@@ -230,13 +225,6 @@ button,
 
 .custom-link:hover {
   color: var(--bs-secondary);
-}
-
-@media (max-width: 480px) {
-  .menu-toggle img {
-    width: 60px !important;
-    height: 60px !important;
-  }
 }
 
 @media (max-width: 768px) {
