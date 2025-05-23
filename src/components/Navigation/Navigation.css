@@ -203,6 +203,27 @@
   border-radius: 5%;
   overflow: hidden;
 }
+.menu-icon-container-mobile {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.menu-icon-container-mobile img,
+.menu-icon-container-mobile svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.nav-overlay-mobile .nav-link-mobile {
+  display: block; /* <-- ensure they stack */
+
+  color: inherit;
+  text-decoration: none;
+  text-align: center;
+}
 
 /* Adjust for medium (tablet) screens */
 @media (max-width: 991px) {

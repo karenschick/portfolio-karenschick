@@ -18,6 +18,7 @@ const Navigation = ({ openContactForm, isContactOpen }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
   const [animationReady, setAnimationReady] = useState(false); // Track when the animation should start
   const [isHovered, setIsHovered] = useState(false);
+  const [showImage, setShowImage] = useState(true);
 
   const { theme } = useTheme();
   const isDark = theme === "dark";
@@ -42,6 +43,13 @@ const Navigation = ({ openContactForm, isContactOpen }) => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowImage((prevShowImage) => !prevShowImage);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [showImage]);
 
   if (isContactOpen) return null;
 
@@ -70,36 +78,55 @@ const Navigation = ({ openContactForm, isContactOpen }) => {
               whileHover={{ scale: 1.05 }}
             >
               <motion.div
-                className="menu-icon-container"
+                className="menu-icon-container-mobile"
                 animate={{
                   rotate: isOpen ? 45 : 0,
                   scale: isOpen ? 0.9 : 1,
                 }}
                 transition={{ duration: 0.3 }}
               >
-                {isHovered ? (
-                  <FontAwesomeIcon
-                    style={{
-                      width: isOpen ? "50%" : "90%",
-                      height: isOpen ? "50%" : "90%",
-                      objectFit: "cover",
-                      transition: "width 0.3s ease, height 0.3s ease",
-                    }}
-                    icon={faBars}
-                    color={isDark ? "white" : "black"}
-                  />
-                ) : (
-                  <img
-                    src={imgSrc}
-                    style={{
-                      width: isOpen ? "50%" : "90%",
-                      height: isOpen ? "50%" : "90%",
-                      objectFit: "cover",
-                      transition: "width 0.3s ease, height 0.3s ease",
-                      borderRadius: "5%",
-                    }}
-                  />
-                )}
+                <AnimatePresence mode="wait">
+                  {showImage ? (
+                    <motion.div
+                      key="img"
+                      initial={{ x: -window.innerWidth }}
+                      animate={{ x: 0 }}
+                      exit={{ x: -window.innerWidth }}
+                      transition={{ duration: 1.0, ease: "easeInOut" }}
+                    >
+                      <img
+                        src={imgSrc}
+                        alt="Animated Image"
+                        style={{
+                          width: isOpen ? "50%" : "90%",
+                          height: isOpen ? "50%" : "90%",
+                          objectFit: "cover",
+                          borderRadius: "5%",
+                          transition: "width 0.3s ease, height 0.3s ease",
+                        }}
+                      />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="icon"
+                      initial={{ x: -window.innerWidth }}
+                      animate={{ x: 0 }}
+                      exit={{ x: -window.innerWidth }}
+                      transition={{ duration: 1.0, ease: "easeInOut" }}
+                    >
+                      <FontAwesomeIcon
+                        icon={faBars}
+                        style={{
+                          width: isOpen ? "50%" : "90%",
+                          height: isOpen ? "50%" : "90%",
+                          objectFit: "cover",
+                          transition: "width 0.3s ease, height 0.3s ease",
+                        }}
+                        color={isDark ? "white" : "black"}
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
 
               <motion.path
@@ -136,7 +163,7 @@ const Navigation = ({ openContactForm, isContactOpen }) => {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className={`nav-overlay ${
+              className={`nav-overlay-mobile ${
                 isDark ? "text-white" : "nav-text-light"
               }`}
               initial={{ opacity: 0 }}
@@ -176,21 +203,21 @@ const Navigation = ({ openContactForm, isContactOpen }) => {
 
                 <Link
                   to="/"
-                  className="nav-link follow-icon"
+                  className="nav-link-mobile follow-icon"
                   onClick={closeMenu}
                 >
                   Home
                 </Link>
                 <Link
                   to="/AboutMe"
-                  className="nav-link follow-icon"
+                  className="nav-link-mobile follow-icon"
                   onClick={closeMenu}
                 >
                   About Me
                 </Link>
                 <Link
                   to="/Portfolio"
-                  className="nav-link follow-icon"
+                  className="nav-link-mobile follow-icon"
                   onClick={closeMenu}
                 >
                   Portfolio
@@ -253,29 +280,48 @@ const Navigation = ({ openContactForm, isContactOpen }) => {
                 }}
                 transition={{ duration: 0.3 }}
               >
-                {isHovered ? (
-                  <FontAwesomeIcon
-                    style={{
-                      width: isOpen ? "50%" : "90%",
-                      height: isOpen ? "50%" : "90%",
-                      objectFit: "cover",
-                      transition: "width 0.3s ease, height 0.3s ease",
-                    }}
-                    icon={faBars}
-                    color={isDark ? "white" : "black"}
-                  />
-                ) : (
-                  <img
-                    src={imgSrc}
-                    style={{
-                      width: isOpen ? "50%" : "90%",
-                      height: isOpen ? "50%" : "90%",
-                      objectFit: "cover",
-                      transition: "width 0.3s ease, height 0.3s ease",
-                      borderRadius: "5%",
-                    }}
-                  />
-                )}
+                <AnimatePresence mode="wait">
+                  {showImage ? (
+                    <motion.div
+                      key="img"
+                      initial={{ x: -window.innerWidth }}
+                      animate={{ x: 0 }}
+                      exit={{ x: -window.innerWidth }}
+                      transition={{ duration: 1.0, ease: "easeInOut" }}
+                    >
+                      <img
+                        src={imgSrc}
+                        alt="Animated Image"
+                        style={{
+                          width: isOpen ? "50%" : "90%",
+                          height: isOpen ? "50%" : "90%",
+                          objectFit: "cover",
+                          borderRadius: "5%",
+                          transition: "width 0.3s ease, height 0.3s ease",
+                        }}
+                      />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="icon"
+                      initial={{ x: -window.innerWidth }}
+                      animate={{ x: 0 }}
+                      exit={{ x: -window.innerWidth }}
+                      transition={{ duration: 1.0, ease: "easeInOut" }}
+                    >
+                      <FontAwesomeIcon
+                        icon={faBars}
+                        style={{
+                          width: isOpen ? "50%" : "90%",
+                          height: isOpen ? "50%" : "90%",
+                          objectFit: "cover",
+                          transition: "width 0.3s ease, height 0.3s ease",
+                        }}
+                        color={isDark ? "white" : "black"}
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
 
               <motion.path
@@ -340,7 +386,7 @@ const Navigation = ({ openContactForm, isContactOpen }) => {
                 initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.95, opacity: 0 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 1.0 }}
                 style={{
                   display: "flex",
                   flexDirection: "column",
